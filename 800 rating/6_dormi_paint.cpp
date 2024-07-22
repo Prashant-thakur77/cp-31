@@ -15,26 +15,33 @@ int main(){
         }
         set<int> s;
         s.insert(v.begin(),v.end());
-        bool yes=true;
+        if(s.size()==1) cout<<"YES"<<endl;
+        else if(s.size()>2) cout<<"NO"<<endl;
         
-        if(s.size()>2) {
-            yes = false;
-        }
         else if(s.size()==2){
             for(int i=0;i<n;i++){
                 if(v[i]== v[0]) {
                     y++;
                     
                 }    
-                
+                else {
+                    p++;
+                       
+                }
+            }
+            if(n%2==0){
+                if(y==p)   cout<<"YES"<<endl;
+                else cout<<"NO"<<endl;
+
             }
             
-            if(y!=n/2 && y!=(n+1)/2) {
-                yes = false;
-            }    
+            else {
+                   if(y==p+1) cout<<"YES"<<endl;
+                   else cout<<"NO"<<endl;
+            } 
+            
+
         }
-        if(yes) cout<<"YES"<<endl;
-        else cout<<"NO"<<endl;
         
 
     } 
