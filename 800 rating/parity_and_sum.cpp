@@ -8,7 +8,6 @@ int main(){
 
     while (t--){
         int n;
-        int k;
         cin>>n;
         int p=0;
         vector<long long> v(n);
@@ -21,6 +20,9 @@ int main(){
                 
             }
         }
+        
+       
+        
         for(int i=0;i<n;i++){
             if(v[i]%2==0) {
                 u.push_back(v[i]);
@@ -29,40 +31,27 @@ int main(){
             }
             else if(v[i]>largest){
                 largest=v[i];
-                k=i;
             }
         }
-        int cnt=0;
-        
-        
-       
-        
-      
-        
+        sort(u.begin(),u.end());
+        bool yes=true;
         
         if(p==0 || p==n) cout<<"0"<<endl;
         else {
-            for(int i=0;i<n;i++){
-            
-                if(( v[i]%2==0)){
-                    if(v[k]>v[i]) {
-                            v[i]=v[k]+v[i];
-                        v[k]=v[i];
-
-                        cnt++;
-                    }
-                    else {
-                        v[k]=v[i]+v[k];
-                        cnt++;
-                    }
+            for(int i=0;i<p;i++){
+                
+                if(largest>u[i]){
+                    largest+=u[i];
                 }
-
-           
+                else {
+                    yes=false;
+                    break;
+                }
             }
+            if(yes) cout<<p<<endl;
+            else cout<<p+1<<endl;
 
-            cout<<cnt<<endl;
         }
-       
         
         
     }
