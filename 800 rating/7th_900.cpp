@@ -23,11 +23,12 @@ int main(){
         if(abs(v[i]-v[i+1])<=k){
           y++;
           cnt=max(cnt,y);
+          
 
         }
         else y=0;        
       }
-      cout<<y+1<<endl;
+      cout<<n-cnt-1<<endl;
     }
     return 0;
 }
