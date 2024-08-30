@@ -6,8 +6,10 @@ using namespace std;
     while(t--){
       int l,b;
       cin>>l>>b;
-      if(b-l+1<4) cout<<1<<endl;
-      else cout<<(b-l+1)/4<<endl;
+      if(l%2==0 ) cout<<(b-l+1)/4<<endl;
+      if(l%2!=0 ) cout<<(b-l+2)/4<<endl;
+      
+
     }
     return 0;
  }
