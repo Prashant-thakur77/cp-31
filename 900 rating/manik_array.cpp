@@ -10,7 +10,7 @@ using namespace std;
       for(int i=1;i<=n;i++){
         cin>>v[i];
       }
-      int min=v[0];
+      
       int maxi=v[n]-v[1];
       for(int i=1;i<n;i++){
         maxi=max(maxi,v[n]-v[i]);
@@ -24,10 +24,12 @@ using namespace std;
       cout<<maxi<<endl;
         
 
-      
+    }
 
     
     return 0;
  }
+ 
+
  
  
