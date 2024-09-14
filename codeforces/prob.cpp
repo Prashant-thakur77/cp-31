@@ -6,6 +6,14 @@ using namespace std;
     while(t--){
       int n;
       cin>>n;
+      int no;
+      if(n%5==0){
+        no==n/5;
+      }
+      else{
+        no=n/5+1;
+      }
+
       
       int cnt=0;
       while(cnt<n){
