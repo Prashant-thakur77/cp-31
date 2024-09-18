@@ -24,7 +24,7 @@ using namespace std;
         cout<<0<<endl;
       }
       else{
-        cout<<cnt*(1<<cnt0)<<endl;
+        cout<<cnt*(1LL<<cnt0)<<endl;
       }
       
     }
