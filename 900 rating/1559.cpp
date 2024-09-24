@@ -11,14 +11,14 @@ using namespace std;
         cin>>v[i];
       }
       long long a;
-      long long mini=v[0];
+      long long minim=v[0];
       for(int i=0;i<x;i++){
-        a=v[i]&mini;
-        mini=min(mini,a);
+        a=v[i]&minim;
+        minim=min(minim,a);
 
 
       }
-      cout<<mini<<endl;
+      cout<<minim<<endl;
     }
     return 0;
  }
