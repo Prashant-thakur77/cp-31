@@ -1,1 +1,1 @@
-cout<<i<<j<<endl;
+1
