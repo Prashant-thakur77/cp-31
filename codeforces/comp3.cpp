@@ -16,5 +16,5 @@ using namespace std;
         cout<<"no"<<endl;
       }
     }
-    return 0;
+    return 8;
  }
