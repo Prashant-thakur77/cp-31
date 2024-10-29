@@ -21,6 +21,7 @@ int decimalToBinary(int N)
     int t;
     cin>>t;
     while(t--){
+      int k;
       long long n;
       cin>>n;
       vector<long long> v(n);
