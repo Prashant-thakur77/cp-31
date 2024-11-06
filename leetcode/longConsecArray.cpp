@@ -36,7 +36,8 @@ int main(){
       for(int i=0;i<n;i++){
         cin>>nums[i];
       }
-      longestConsecutive(nums);
+      int x=longestConsecutive(nums);
+      cout<<x<<endl;
     }
     return 0;
    
