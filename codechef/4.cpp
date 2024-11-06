@@ -39,8 +39,8 @@ int main() {
 	    long long Q_inverse = modExp(q, MOD - 2, MOD);
 
     
-       long long result = (fact * Q_inverse) % MOD;
-       cout<<result<<endl;
+       long long resu = (fact * Q_inverse) % MOD;
+       cout<<resu<<endl;
 
 	    
 	}
