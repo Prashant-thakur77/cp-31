@@ -29,7 +29,7 @@ int main(){
            }
            //cout<<cnt<<endl;
            if(cnt>=(n-k)/2) cout<<"yes"<<endl;
-           else cout<<"no"<<endl;
+           else cout<<"noOO"<<endl;
 
 
 
