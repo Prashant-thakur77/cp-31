@@ -16,8 +16,8 @@ using namespace std;
       for(int i=0;i<n-2;i++){
         sum+=v[i];
       }
-      long long an=last-(seclast-sum);
-      cout<<an<<endl;
+      long long andd=last-(seclast-sum);
+      cout<<andd<<endl;
     }
     return 0;
  }
