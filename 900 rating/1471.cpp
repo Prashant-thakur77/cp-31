@@ -13,7 +13,7 @@ int main(){
           cin>>v[i];
           sum1+=v[i];
           sum2+=ceil(v[i]/(double)x);
-          cout<<ceil(v[i]/x)<<endl;
+          
         }
         sum1=ceil(sum1/(double)x);
         cout<<sum1<<" "<<sum2<<endl;
