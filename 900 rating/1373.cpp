@@ -1,19 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-size_t findid(string &s,string &con1,string &con2){
-  size_t g=s.find(con1);
-  size_t l=s.find(con2);
-  if(g!=string::npos){
-    return g;
 
-  }
-  else if(l!=string::npos){
-    return l;
-  }
-  else return -5;
   
   
-}
+
  int main(){
     int t;
     cin>>t;
