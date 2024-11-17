@@ -5,30 +5,32 @@ using namespace std;
     cin>>t;
     
     while(t--){
-      int n;
-      cin>>n;
+      int k;
+      cin>>k;
+      int n=k-2;
       int ans2=0;
      
       int ans1=0;
       
 
-      vector<int> v(n);
-      for(int i=0;i<n;i++){
+      vector<int> v(k);
+      for(int i=0;i<k;i++){
         cin>>v[i];
       }
+       unordered_set<int> hello;
+       pair<int,int> result;
      
       
-      for(int i=0;i<n-1;i++){
-        if(v[i]>n-2) continue;
-        for(int j=i+1;j<n;j++){
-          if(v[j]>n-2) continue;
-          if(v[i]*v[j]==n-2){
-            ans1=v[i];
-            ans2=v[j];
-            break;
-          }
+      for(int i=0;i<k;i++){
+       if(n%v[i]==0){
+        int comp=n/v[i];
+        if(hello.find(comp)!=hello.end()){
+          result={v[i],comp};
 
         }
+        
+       }
+       hello.insert(v[i]);
         
        
         
@@ -42,7 +44,7 @@ using namespace std;
        
       
     
-      cout<<ans1<<" "<<ans2<<endl;
+      cout<<result.first<<" "<<result.second<<endl;
       
     }
     
