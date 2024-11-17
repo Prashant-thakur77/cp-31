@@ -21,6 +21,7 @@ using namespace std;
       for(int i=0;i<n-1;i++){
         if(v[i]>n-2) continue;
         for(int j=i+1;j<n;j++){
+          if(v[j]>n-2) continue;
           if(v[i]*v[j]==n-2){
             ans1=v[i];
             ans2=v[j];
