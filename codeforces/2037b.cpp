@@ -17,20 +17,20 @@ using namespace std;
       for(int i=0;i<k;i++){
         cin>>v[i];
       }
-       unordered_set<int> hello;
+       unordered_set<int> seen;
        pair<int,int> result;
      
       
       for(int i=0;i<k;i++){
        if(n%v[i]==0){
         int comp=n/v[i];
-        if(hello.find(comp)!=hello.end()){
+        if(seen.find(comp)!=seen.end()){
           result={v[i],comp};
 
         }
         
        }
-       hello.insert(v[i]);
+       seen.insert(v[i]);
         
        
         
