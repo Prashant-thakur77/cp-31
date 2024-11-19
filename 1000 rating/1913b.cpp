@@ -18,22 +18,22 @@ using namespace std;
       int ans;
       for(i=0;i<n;i++){
         if(s[i]=='1'){
-          if(zero>0){
-            zero--;
+          if(zero==0){
+            break;
             
           }
-          else
-          break;
+          else zero--;
+          
           
           
         }
         else {
-          if(one>0){
-            one--;
+          if(one==0){
+            break;
             
           }
-          else
-          break;
+          else one--;
+          
           
         }
         
