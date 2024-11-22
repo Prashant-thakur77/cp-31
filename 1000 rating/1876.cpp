@@ -1,20 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int small(vector<int> &ans1,vector<int> &ans2,int k,int &cnt){
-  int small=k;
-  int h;
-  for(int i=0;i<ans1.size();i++){
-    if(ans1[i]<small && ans2[i]>0){
-      small=ans1[i];
-      h=i;
 
-    }
-  }
-  ans2[h]--;
-  cnt++;
-  return small;
-
-}
 
 int main(){
 
@@ -23,35 +9,37 @@ int main(){
   while(t--){
     long long n,k;
     cin>>n>>k;
-    vector<int> v(n);
-    vector<int> m(n);
+    vector<long long> v(n);
+    vector<long long> m(n);
     for(int i=0;i<n;i++){
       cin>>v[i];
     }
     for(int i=0;i<n;i++){
       cin>>m[i];
     }
-    vector<int> ans1;
-    vector<int> ans2;
+    vector<pair<long long,long long>> cost;
+    cost.push_back({k,n+1});
     for(int i=0;i<n;i++){
-      if(m[i]<k){
-        ans1.push_back(m[i]);
-        ans2.push_back(v[i]);
-      }
+      cost.push_back(make_pair(m[i],v[i]));
     }
-    if(ans1.size()==0){
-      cout<<n*k<<endl;
-    }
-    else {
-      int cnt=1;
-    int ans=k;
+    sort(cost.begin(),cost.end());
+    int cnt=1;
+    long long costt=k;
+    int ind=0;
     while(cnt<n){
-      ans+=small(ans1,ans2,k,cnt);
-
+      int left=n-cnt;
+      if(cost[ind].second<=left){
+        cnt+=cost[ind].second;
+        costt+=cost[ind].first*cost[ind].second;
+      }
+      else{
+        cnt=n;
+        costt+=left*cost[ind].first;
+      }
+      ind++;
     }
-    cout<<ans<<endl;
-
-    }
+    cout<<costt<<endl;
+   
     
 
 
