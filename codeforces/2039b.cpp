@@ -21,14 +21,29 @@ using namespace std;
       else cout<<-1<<endl;
       }
        else if(n==3){
+        int left=0;
+        int right=0;
             if(s[0]==s[1]==s[2]){
               cout<<s<<endl;
             }
             else if(s[0]==s[2]){
               cout<<-1<<endl;
             }
-            else if(s[0]==s[1]) cout<<s[0]+s[1]<<endl;
-            else cout<<s[1]+s[2]<<endl;
+            else if(s[0]==s[1]) {
+              left=0;
+              right=1;
+              
+            }
+            else {
+              left=1;
+              right=2;
+            }
+            for(int i=left;i<=right;i++){
+              cout<<s[i];
+            }
+            cout<<endl;
+
+    
 
           }
           
@@ -49,7 +64,7 @@ using namespace std;
             break;
 
           }
-          else if(s[i]==s[i+2] && s[i]==s[i+1] ){
+          else if(s[i]==s[i+2] && s[i+1]==s[i+3] ){
             left=i;
             
             right=i+3;
@@ -57,6 +72,7 @@ using namespace std;
             break;
 
           }
+          
           
          
         }
