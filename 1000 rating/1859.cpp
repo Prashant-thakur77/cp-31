@@ -53,7 +53,7 @@ int main(){
         
 
       }
-    long long beauty=mini+accumulate(min_2.begin(),min_2.end(),0)-mi_2;
+    long long beauty=mini+accumulate(min_2.begin(),min_2.end(),(long long)0)-mi_2;
     cout<<beauty<<endl;
     
     
