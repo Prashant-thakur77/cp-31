@@ -9,14 +9,14 @@ int main(){
   while(t--){
     long long n;
     cin>>n;
-    int mini=INT_MAX;
+    long long mini=INT_MAX;
     vector<int> min_2;
     for(int i=0;i<n;i++){
       long long m;
       cin>>m;
       vector<int> arr(m);
       for(int i=0;i<m;i++) cin>>arr[i];
-      int min_el=INT_MAX;
+      long long min_el=INT_MAX;
       int ind=0;
       for(int i=0; i<m; i++){
         if(arr[i]<min_el){
@@ -29,11 +29,11 @@ int main(){
       }
       mini=min(min_el,mini);
       arr.erase(arr.begin()+ind);
-      int minnn=INT_MAX;
-      for(int i=0; i<m; i++){
+      long long minnn=INT_MAX;
+      for(int i=0; i<m-1; i++){
         if(arr[i]<minnn){
           minnn = arr[i];
-          ind=i;
+          
 
         }
         
@@ -43,7 +43,7 @@ int main(){
 
 
     }
-    int mi_2=INT_MAX;
+    long long mi_2=INT_MAX;
     for(int i=0; i<min_2.size(); i++){
         if(min_2[i]<mi_2){
           mi_2 = min_2[i];
