@@ -49,9 +49,6 @@ int main(){
         
       }
   
-      cout<<min_elem<<endl;
-      cout<<sum<<endl;
-      cout<<the_min<<endl;
      
     long long ans=min_elem+sum-the_min;
     cout<<ans<<endl;
