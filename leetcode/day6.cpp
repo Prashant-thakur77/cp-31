@@ -18,7 +18,7 @@ vector<string> stringMatching(vector<string>& words) {
             }
         }
         for(auto it:ans1){
-            cout<<it<<;
+            cout<<it;
         }
         
         cout<<endl;
