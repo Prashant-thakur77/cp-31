@@ -6,8 +6,8 @@ using namespace std;
     while(t--){
       long long n;
       cin>>n;
-      vector<int> v(n);
-      vector<int> w(n);
+      vector<long long> v(n);
+      vector<long long> w(n);
       for(int i=0;i<n;i++){
         cin>>v[i];
 
@@ -17,9 +17,9 @@ using namespace std;
         
       }
       vector<int> ans(n);
-      int cnt=0;
-      int cnt0=0;
-      int ind=0;
+      long long cnt=0;
+      long long cnt0=0;
+      long long ind=0;
       for(int i=0;i<n;i++){
         
         ans[i]=v[i]-w[i];
@@ -45,8 +45,8 @@ using namespace std;
           }
           
         }
-        //cout<<mini<<endl;
-        if(mini>=anss)cout<<"yes"<<endl;
+        
+        if(mini>=anss || cnt==0)cout<<"yes"<<endl;
         else cout<<"no"<<endl;
         
 
