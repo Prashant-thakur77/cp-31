@@ -6,20 +6,33 @@ using namespace std;
     while(t--){
       long long n,k;
       cin>>n>>k;
-      
+      vector<int> v(n);
+
+      for(int i=0;i<n;i++){
+        cin>>v[i];
+      }
       unordered_map<long long,long long> mp;
+      for(int i=0;i<n;i++){
+        mp[v[i]]++;
+        
+      }
       int cnt=0;
       for(int i=0;i<n;i++){
-        int num;
-        cin>>num;
-        if(mp[k-num]!=0){
+        int a=k-v[i];
+        if(a==v[i]){
+          if(mp[a]>=2){
+            cnt++;
+            mp[a]=mp[a]-2;
+          }
+
+        }
+        else if(mp[a]!=0 && mp[a]>0 && mp[v[i]]>0){
+          
           cnt++;
-          mp[k-num]--;
+          mp[v[i]]--;
+          mp[a]--;
         }
-        else{
-          mp[num]++;
-        }
-       
+        
 
       }
       cout<<cnt<<endl;
