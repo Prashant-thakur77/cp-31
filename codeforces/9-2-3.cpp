@@ -49,7 +49,7 @@ using namespace std;
         }
       }
       if(flag==0){
-        cout<<"yes"<<endl;
+        cout<<"Yes"<<endl;
       }
       else if(flag==1){
         cout<<"no"<<endl;
