@@ -1,10 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int count(string s){
-  unordered_set<char> st(s.begin(),s.end());
-  return st.size();
 
-}
 int main(){
   int t;
   cin>>t;
@@ -13,19 +9,35 @@ int main(){
     cin>>n;
     string s;
     cin>>s;
-    
-    int maxi=0;
-    
+    map<char,int> mp1;
+    map<char,int> mp2;
+    mp1[s[0]]=1;
     for(int i=1;i<n;i++){
-      string a=s.substr(0,i);
-      string b=s.substr(i);
-      int cnt1=count(a);
-      int cnt2=count(b);
-      maxi=max(maxi,cnt1+cnt2);
       
+      mp2[s[i]]++;
+      
+    }
+    int maxi=mp1.size()+mp2.size();
+     //cout<<maxi<<endl;
+    for(int i=1;i<n;i++){
+      mp2[s[i]]--;
+      if(mp2[s[i]]==0){
+        mp2.erase(s[i]);
+      }
+      //cout<<"mp2    "<<mp2.size()<<endl;
+      mp1[s[i]]++;
+      //cout<<"mp1    "<<mp1.size()<<endl;
+      int sum=mp1.size()+mp2.size();
+      maxi=max(maxi,sum);
+       //cout<<maxi<<endl;
+
 
     }
     cout<<maxi<<endl;
+    
+    
+    
+   
   }
   return 0;
 }
