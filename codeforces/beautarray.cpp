@@ -25,16 +25,7 @@ int main(){
 
             beauty[i]=(k*b);
             cursum+=beauty[i];
-            if(s-cursum>=k-1){
-              cursum+=k-1;
-              beauty[i]+=k-1;
-            }
-            else{
-              
-              beauty[i]+=s-cursum;
-              cursum=s;
-
-            }
+            
             continue;
           }
           if(s-cursum<k-1){
@@ -49,6 +40,10 @@ int main(){
           
           
           cursum+=beauty[i];
+    }
+    while(s-cursum!=0){
+      beauty[0]++;
+      cursum++;
     }
     
     for(int i=0;i<n;i++){
