@@ -11,92 +11,35 @@ int main(){
     for(int i=0;i<n;i++){
       cin>>v[i];
     }
-    int cnt1=1;
+    int cnt1=0;
     int cnt2=n-1;
-    string s="L";
-    long long last=v[0];
-    long long last2=-1;
-    int flag=0;
-    while(cnt1<=cnt2){
-      if(v[cnt1]>last && v[cnt2]>last){
-        long long r=max(v[cnt1],v[cnt2]);
-        flag=2;
-        if(r==v[cnt1]){
-          s=s+"L";
-          last=v[cnt1];
-          cnt1++;
-
-        }
-        else{
-          s=s+"R";
-          last=v[cnt2];
-          cnt2--;
-
-        }
-
-      }
-      else if(v[cnt1]<last && v[cnt2]<last){
-        long long r=min(v[cnt1],v[cnt2]);
-        flag=1;
-        if(r==v[cnt1]){
-          s=s+"L";
-          last=v[cnt1];
-          cnt1++;
-
-        }
-        else{
-          s=s+"R";
-          last=v[cnt2];
-          cnt2--;
-
-        }
-
-      }
-      if(v[cnt1]>last && v[cnt2]<last){
-        if(flag==1){
-          s=s+"L";
-          last2=last;
-          last=v[cnt1];
-          cnt1++;
-          flag=0;
-
-        }
-        else {
-          s=s+"R";
-          last2=last;
-          last=v[cnt2];
-          cnt2--;
-          
-        }
-        
-      }
-      else if(v[cnt1]<last && v[cnt2]>last){
-        if(flag==1){
-          s=s+"R";
-          last2=last;
-          last=v[cnt2];
-          cnt2--;
-
-        }
-        else{
-          s=s+"L";
-          last2=last;
-          last=v[cnt1];
+    string s="";
+    while(s.length()!=n){
+      if(v[cnt1]>v[cnt2]){
+        s=s+"L";
         cnt1++;
-
-        }
-        
-
       }
-      
-      
-        
-        
-        
-
-      
+      else{
+        s=s+"R";
+        cnt2--;
+      }
+      if(s.length()==n)break;
+      if(v[cnt1]<v[cnt2]){
+        s=s+"L";
+        cnt1++;
+      }
+      else{
+        s=s+"R";
+        cnt2--;
+      }
     }
     cout<<s<<endl;
+    
+        
+        
+        
+
+
     
   }
   return 0;
