@@ -7,86 +7,22 @@ int main(){
   while(t--){
     long long a,b;
     cin>>a>>b;
-    long long remaina=-1;
-    long long remainb=-1;
-    long long otherparta=1;
-    long long otherpartb=1;
-    while(a%8==0){
-      a=a/8;
-      otherparta*=8;
-
-    }
-    while(a%4==0){
-      a=a/4;
-      otherparta*=4;
-
-    }
+    int cnt1=0;
+    int cnt2=0;
     while(a%2==0){
       a=a/2;
-      otherparta*=2;
-
-    }
-    while(b%8==0){
-      b=b/8;
-      otherpartb*=8;
-
-    }
-    while(b%4==0){
-      b=b/4;
-      otherpartb*=4;
-
+      cnt1++;//(no of 2 raise to x this is x)
     }
     while(b%2==0){
       b=b/2;
-      otherpartb*=2;
-
+      cnt2++;//(no of 2 raise to x this is x)
     }
-    remaina=a;
-    remainb=b;
-    if(remaina!=remainb){
-      cout<<-1<<endl;
-    }
+    if(a!=b)cout<<-1<<endl;
     else{
-      if(otherparta==otherpartb)cout<<0<<endl;
-      else if(otherparta<otherpartb){
-        int total=0;
-        while(otherparta*8<=otherpartb){
-          otherparta*=8;
-          total++;
-
-        }
-        while(otherparta*4<=otherpartb){
-          otherparta*=4;
-          total++;
-
-        }
-        while(otherparta*2<=otherpartb){
-          otherparta*=2;
-          total++;
-
-        }
-        cout<<total<<endl;
-
-      }
+      if(cnt1==cnt2)cout<<0<<endl;
       else{
-        int total=0;
-        while(otherparta%8==0 && otherparta/8>=otherpartb){
-          otherparta/=8;
-          total++;
-
-        }
-        while(otherparta%4==0 && otherparta/4>=otherpartb){
-          otherparta/=4;
-          total++;
-
-        }
-        while(otherparta%2==0 && otherparta/2>=otherpartb){
-          otherparta/=2;
-          total++;
-
-        }
-        cout<<total<<endl;
-
+        int diff=abs(cnt2-cnt1);
+        cout<<diff/3 + (diff%3!=0)<<endl;
       }
     }
       
