@@ -17,7 +17,8 @@ int main(){
       cin>>it;
     }
     int maxi=INT_MIN;
-     vector<int> ans;
+    int maxi2=INT_MIN;
+
     for(int i=0;i<n;i++){
       sum+=v[i];
       
@@ -25,19 +26,12 @@ int main(){
       maxi=max(maxi,b[i]);
       k--;
       if(k<0)break;
-      int subsum=sum+k*maxi;
-      ans.push_back(subsum);
+      maxi2=max(maxi2,sum+k*maxi);
+      
       
 
     }
-    sort(ans.begin(),ans.end());
-    
-    int m=ans.size();
-    /**for(int i=0;i<m;i++){
-      cout<<ans[i]<<" ";
-    }
-    cout<<endl;**/
-    cout<<ans[m-1]<<endl;
+    cout<<maxi2<<endl;
    
     
   }
