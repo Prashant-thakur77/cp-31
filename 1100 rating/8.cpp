@@ -16,48 +16,8 @@ void solve() {
       cin>>v[i].first;
       cin>>v[i].second;
     }
-    if(a<=k && b<=k){
-      cout<<0<<endl;
-      return;
-    }
-    else if(a>k && b<=k){
-      ll x1=v[a].first;
-      ll y1=v[a].second;
-
-      ll mini=LLONG_MAX;
-      for(int i=1;i<k+1;i++){
-        ll x2=v[i].first;
-        ll y2=v[i].second;
-        ll diff=abs(x2-x1)+abs(y2-y1);
-        mini=min(mini,diff);
-
-
-
-      }
-      cout<<mini<<endl;
-      return;
-
-    }
-    else if(a<=k && b>k){
-      ll x1=v[b].first;
-      ll y1=v[b].second;
-
-      ll mini=LLONG_MAX;
-      for(int i=1;i<k+1;i++){
-        ll x2=v[i].first;
-        ll y2=v[i].second;
-        ll diff=abs(x2-x1)+abs(y2-y1);
-        mini=min(mini,diff);
-
-
-
-      }
-      cout<<mini<<endl;
-      return;
-
-    }
-    else{
-      ll x11=v[a].first;
+    
+    ll x11=v[a].first;
       ll y11=v[a].second;
 
       ll mini1=10e12;
@@ -96,8 +56,6 @@ void solve() {
       ll mini=min(sum,ans);
       cout<<mini<<endl;
       return;
-      
-    }
 }
 
 int32_t main() {
