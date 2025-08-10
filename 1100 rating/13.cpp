@@ -15,17 +15,7 @@ void solve() {
     for(int i=0;i<n;i++){
       cin>>ans[i];
     }
-    int loop=n/2;
-    int flag=true;
-    for(int i=0;i<n/2;i++){
-      if(ans[i]!=ans[n-i-1]){
-        flag=false;
-      }
-    }
-    if(flag){
-      cout<<0<<endl;
-      return;
-    }
+    
     vector<ll> v(n/2);
     ll no=0;
     for(int i=0;i<n/2;i++){
