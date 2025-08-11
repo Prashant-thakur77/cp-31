@@ -13,36 +13,24 @@ void solve() {
     cin>>n>>k;
     vector<ll> a(n);
     vector<ll> b(n);
-    unordered_map<ll,int> mp; 
+    
    
     for (int i=0;i<n;i++) {
         cin>>a[i];
-        mp[a[i]%k]++;  
+        a[i]=min(a[i]%k,k-a[i]%k) ; 
     }
     for (int i=0;i<n;i++) {
         cin>>b[i];
+        b[i]=min(b[i]%k,k-b[i]%k) ;
       
     }
+    sort(all(a));
+    sort(all(b));
+    if(a==b)cout<<"yes"<<endl;
+    else cout<<"no"<<endl;
+    return;
 
-    for (int i=0;i<n;i++) {
-       
-        ll d=b[i] % k;
-        ll no=d; 
-        if (mp[no]>0) {
-            mp[no]--;
-        }
-        else {
-            no=abs(k-d);
-            if(mp[no]>0) {
-                mp[no]--;
-            }
-            else{
-                cout<<"no"<<endl;;
-                return;
-            }
-        }
-    }
-    cout<<"yes"<<endl;
+   
 }
 
 int32_t main() {
