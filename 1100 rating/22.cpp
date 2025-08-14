@@ -2,49 +2,43 @@
 using namespace std;
 
 #define ll long long
-const ll MOD = 1000000007;
+#define fast_io ios::sync_with_stdio(false); cin.tie(nullptr)
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define mod 1000000007
+long long modpow(long long n,long long x){
+    long long ans=1;
+    while(x>0){
+        if(x&1) ans=(ans*n)%mod;
+        n=(n*n)%mod;
+        x>>=1;
 
-ll modpow(ll base, ll exp) {
-    ll res = 1;
-    while (exp) {
-        if (exp & 1) res = (res * base) % MOD;
-        base = (base * base) % MOD;
-        exp >>= 1;
     }
-    return res;
+    return ans%mod;
+
 }
 
 void solve() {
+    // Your code here
     ll n;
-    cin >> n;
+    cin>>n;
+    ll inver6=modpow(6,mod-2);
+    long long term1=(n*(n+1))%mod;
+    long long term2=((term1)*(2*n+1))%mod;
+    long long sum1=((term2)*(inver6))%mod;
+  
+    long long term3=((term1)*(2*n-2))%mod;
+    long long sum2=((term3)*(inver6))%mod;
+    cout<<((sum1+sum2)*2022)%mod<<endl;
 
-    ll inv3 = modpow(3, MOD - 2); // modular inverse of 3
-    ll inv6 = modpow(6, MOD - 2); // modular inverse of 6
 
-    ll a = n % MOD;
-    ll b = (n + 1) % MOD;
-    ll c = (n - 1 + MOD) % MOD;
-    ll d = (2 * n + 1) % MOD;
 
-    // First term: n*(n+1)*(n-1)/3
-    ll term1 = (((a * b) % MOD) * c) % MOD;
-    term1 = (term1 * inv3) % MOD;
 
-    // Second term: n*(n+1)*(2n+1)/6
-    ll term2 = (((a * b) % MOD) * d) % MOD;
-    term2 = (term2 * inv6) % MOD;
-
-    // Final sum
-    ll Sfinal = (term1 + term2)*2022LL % MOD;
-
-    cout << Sfinal << "\n";
 }
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int t;
+int32_t main() {
+    fast_io;
+    int t = 1;
     cin >> t;
     while (t--) solve();
     return 0;
