@@ -5,26 +5,33 @@ using namespace std;
 #define fast_io ios::sync_with_stdio(false); cin.tie(nullptr)
 #define all(x) (x).begin(), (x).end()
 #define pb push_back
-#define mod 1000000006
+#define mod 1000000007
 
 void solve() {
     // Your code here
-    ll n,k;
-    cin>>n>>k;
+    ll n;
+    cin>>n;
     vector<ll> v(n);
-    map<int,bool> mp;
     for(int i=0;i<n;i++){
       cin>>v[i];
-      mp[v[i]]=true;
     }
-    for(int i=0;i<n;i++){
-      if(mp.find(v[i]-k)!=mp.end()){
-        cout<<"yes"<<endl;
-        return;
+    int no=v[n-1];
+    int cnt=0;
+    int cnt2=1;
+    for(int i=n-2;i>=0;){
+      if(v[i]==no){
+        cnt2++;
+        i--;
+      }
+      else if(v[i]!=no){
+        i=i-cnt2;
+        cnt2+=cnt2;
+        cnt++;
+
       }
     }
-    cout<<"no"<<endl;
-    return;
+    cout<<cnt<<endl;
+
 }
 
 int32_t main() {
