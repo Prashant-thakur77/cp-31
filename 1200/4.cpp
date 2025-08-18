@@ -17,7 +17,7 @@ void solve() {
       cin>>v[i];
     }
     sort(all(v));
-    vector<pair<ll,ll>> pai;
+   /*vector<pair<ll,ll>> pai;
     pai.push_back({v[0],1});
     int cnt=0;
     for(int i=1;i<m;i++){
@@ -61,7 +61,16 @@ void solve() {
     for(int i=0;i<n;i++){
       cout<<ans[i]<<" ";
     }
-    cout<<endl;
+    cout<<endl;*/
+    int x=n-1;
+    int i=0;
+    while(x>0){
+      cout<<v[i]<<" ";
+      i+=x;
+      x--;
+    }
+    cout<<1000000000<<endl;
+    return;
 
     
 }
