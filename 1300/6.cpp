@@ -27,6 +27,7 @@ void solve() {
       maxi=max(maxi,diff[i].first);
     }
     sort(all(diff));
+    
   
     vector<int> ans;
     for(int i=0;i<n;i++){
