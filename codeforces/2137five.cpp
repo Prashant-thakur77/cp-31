@@ -9,6 +9,45 @@ using namespace std;
 
 void solve() {
     // Your code here
+    ll n;
+    cin>>n;
+    ll k;
+    cin>>k;
+    vector<int> v(n);
+    for(int i=0;i<n;i++){
+      cin>>v[i];
+    }
+    set<int> st(v.begin(),v.end());
+    int mis=0;
+    for(auto &it:st){
+      if(mis==it){
+        mis++;
+      }
+      else break;
+
+    }
+    vector<ll> ans(n,-1);
+    ll ans1=0;
+    for(int i=0;i<n;i++){
+      if(v[i]>mis){
+        if(k%2==0){
+          ans[i]=mis+1;
+          ans1+=ans[i];
+        }
+        else {
+          ans[i]=mis;
+          ans1+=ans[i];
+        }
+      }
+      else {
+        ans[i]=v[i];
+        ans1+=ans[i];
+      }
+    }
+    cout<<mis<<endl;
+    cout<<ans1<<endl;
+    
+
 }
 
 int32_t main() {
