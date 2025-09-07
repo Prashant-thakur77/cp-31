@@ -14,10 +14,14 @@ void solve() {
     ll k;
     cin>>k;
     vector<int> v(n);
+     map<int,int> mp;
     for(int i=0;i<n;i++){
       cin>>v[i];
+      mp[v[i]]++;
     }
+   
     set<int> st(v.begin(),v.end());
+    sort(all(v));
     int mis=0;
     for(auto &it:st){
       if(mis==it){
@@ -40,8 +44,12 @@ void solve() {
         }
       }
       else {
-        ans[i]=v[i];
-        ans1+=ans[i];
+        if(k%2==1){
+          
+
+        }
+        
+        
       }
     }
     cout<<mis<<endl;
