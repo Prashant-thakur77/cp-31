@@ -8,14 +8,22 @@ using namespace std;
 #define mod 1000000007
 
 void solve() {
-    // Your code here
-    ll k1,x;
-    cin>>k1>>x;
-    
-    for(int i=0;i<k1;i++){
-      x=x*2;
+    // Your code herll n;
+    ll n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int cnt1=0;
+    for(int i=0;i<n;i++){
+      if(s[i]=='1') cnt1++;
     }
-    cout<<x<<endl;
+    for(int i=n-cnt1;i<n;i++){
+      if(s[i]=='1')cnt1--;
+
+
+    }
+    cout<<cnt1<<endl;
+    return;
 }
 
 int32_t main() {

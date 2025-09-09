@@ -8,19 +8,15 @@ using namespace std;
 #define mod 1000000007
 
 void solve() {
-    // Your code here
-    ll k1,x;
-    cin>>k1>>x;
-    
-    for(int i=0;i<k1;i++){
-      x=x*2;
-    }
-    cout<<x<<endl;
+    ll n;
+    cin >> n;
+    ll y=(ll)2*n;
+    cout<<y<<endl;
 }
 
 int32_t main() {
     fast_io;
-    int t = 1;
+    int t;
     cin >> t;
     while (t--) solve();
     return 0;
