@@ -24,5 +24,5 @@ int main()
         v[b].push_back(a);
     }
     dfs(1,0,0);
-    printf("%I64d",cnt[0]*cnt[1]-n+1);
+    cout<<1LL*cnt[0]*cnt[1]-n+1<<endl;
 }
