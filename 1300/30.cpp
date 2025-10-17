@@ -9,6 +9,7 @@ using namespace std;
 #define mod 1000000007
 
 void solve() {
+    int m=0;
     ll n, k;
     cin >> n >> k;
     vector<ll> v(n);
