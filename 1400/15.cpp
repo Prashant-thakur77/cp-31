@@ -49,7 +49,7 @@ void solve() {
       ans[(x^no4)+no3]=1;
 
     }
-    if(ans[y]){
+    if((frontadd[n-1]+x+y)%2==0){
       cout<<"Alice"<<endl;
     }
     else cout<<"Bob"<<endl;
