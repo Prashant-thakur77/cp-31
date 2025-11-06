@@ -27,36 +27,40 @@ void solve() {
       //cout<<u[i]<<"  "<<s[i]<<endl;
       
     }
-    
+    int m=v.size();
     //cout<<m<<endl;
-    for (int i = 1; i <=n; i++) {
+    for (int i = 1; i < m; i++) {
      sort(rall(v[i])); 
     }
-    vector<vector<long long>> pr(n+1, vector<long long>(1, 0));
-    for(int i=1;i<=n;i++){
-      for(int it: v[i]){
-        pr[i].push_back(pr[i].back()+it);
-      }
-    }
-   
     
-    
-    vector<ll> ans1(n);
-    for(int i=1;i<=n;i++){
-      
-      for(int j=1;j<=v[i].size();j++){
-        ans1[j-1]+=pr[i][v[i].size()/j*j];
+    for(int i=1;i<m;i++){
+      int k=v[i].size();
+
+      for(int j=1;j<k;j++){
+        v[i][j]=v[i][j-1]+v[i][j];
 
       }
+    }
+    
+    
+    vector<ll> ans1(n,0);
+    for(int k=1;k<=n;k++){
       
+      for(int j=1;j<=v[k].size();j++){
+        int idx = (v[k].size() / j) * j - 1;
+if (idx >= 0) ans1[j - 1] += v[k][idx];
+        //cout<<k<<" "<<ans<<endl;
+
+      }
+     
       
     }
-    int k=n-ans1.size();
+   
     for(int i=0;i<ans1.size();i++){
       cout<<ans1[i]<<" ";
     }
-    cout<<endl;
     
+    cout<<endl;
     return;
 
 
