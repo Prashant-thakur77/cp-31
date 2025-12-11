@@ -32,6 +32,9 @@ void solve() {
 
 
       }
+      if(first==-1){
+        continue;
+      }
       ans+=size-first-cnt;
       size=first;
       if(size<=0)break;
