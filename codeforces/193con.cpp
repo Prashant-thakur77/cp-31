@@ -15,39 +15,39 @@ void solve() {
     vector<long long> ans(k);
 
     if (k%2==0) {
-        if (__builtin_popcountll(n) == 1) {
-            for (int i = 0; i < k - 1; i++) {
-                ans[i] = n;
+        if(__builtin_popcountll(n)== 1){
+            for(int i=0;i<k-1;i++){
+                ans[i]=n;
             }
-            ans[k - 1] = 0;
+            ans[k-1]=0;
         } 
         else {
-            for (int i = 0; i < k - 2; i++) {
-                ans[i] = n;
+            for(int i =0; i <k -2;i++){
+                ans[i] =n;
             }
-            int highest = -1, second = -1;
-            for (int i = 0; i < 63; i++) {
-                if (n & (1LL << i)) {
-                    second = highest;
-                    highest = i;
+            int highest= -1, second= -1;
+            for (int i= 0; i< 63;i++) {
+                if (n&(1LL<<i)) {
+                    second =highest;
+                    highest =i;
                 }
             }
-            long long prefix= n& ~((1LL << (second + 1)) - 1);
-            ans[k - 2]= prefix | ((1LL << second) - 1);
-            ans[k - 1]= n^ans[k - 2];
+            ll prefix= n& ~((1LL<<(second+1))-1);
+            ans[k-2]= prefix|((1LL<<second)-1);
+            ans[k-1]= n^ans[k-2];
         }
 
-    } else {
-        // odd k → all n
-        for (int i = 0; i < k; i++) {
-            ans[i] = n;
+    } 
+    else {
+        for (int i=0;i<k;i++) {
+            ans[i]=n;
         }
     }
-        for(ll i=0;i<k;i++){
-          cout<<ans[i]<<" ";
+    for(ll i=0;i<k;i++){
+        cout<<ans[i]<<" ";
 
-        } 
-        return;
+    } 
+    return;
     }
 
 int main() {
