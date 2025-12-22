@@ -7,17 +7,42 @@ using namespace std;
 #define rall(x) (x).rbegin(), (x).rend()
 #define pb push_back
 #define mod 1000000007
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+typedef tree<
+    int,
+    null_type,
+    less<int>,
+    rb_tree_tag,
+    tree_order_statistics_node_update
+> ordered_set;
+
+
 
 void solve() {
     // Your code here
     int n;
     cin>>n;
-    vector<int> a(n);
-    vector<int> b(n);
+    vector<pair<int,int>> v(n);
     for(int i=0;i<n;i++){
-      cin>>a[i];
-      cin>>b[i];
+      cin>>v[i].second;
+      cin>>v[i].first;
+    
+      
     }
+    sort(all(v));
+    ordered_set st;
+    ll ans=0;
+    for(auto p :v){
+        ans += st.size() - st.order_of_key(p.second);
+ 
+        st.insert(p.second);
+    }
+    cout<<ans<<endl;
+    return;
+
     
 
 
