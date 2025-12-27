@@ -14,17 +14,14 @@ void solve() {
     cin>>n;
     string s;
     cin>>s;
-
     ll p=0,m=0;
     for (char c : s) {
         if (c=='+')p++;
         else m++;
     }
-
     ll tot=p-m;
     ll q;
     cin>>q;
-
     while (q--) {
         ll x, y;
         cin>>x>>y;
@@ -36,14 +33,12 @@ void solve() {
             cout<<"NO\n";
             continue;
         }
-
         ll num=tot*y;
         ll den =y-x;
         if (num%den!=0) {
             cout<<"NO\n";
             continue;
         }
-
         ll k=num/den;
         if (-m<=k && k<=p) cout<<"YES\n";
         else cout<<"NO\n";
