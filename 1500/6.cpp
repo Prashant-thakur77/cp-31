@@ -14,60 +14,39 @@ void solve() {
     cin>>n;
     string s;
     cin>>s;
+
+    ll p=0,m=0;
+    for (char c : s) {
+        if (c=='+')p++;
+        else m++;
+    }
+
+    ll tot=p-m;
     ll q;
     cin>>q;
-    int mini=0;
-      int maxi=0;
-      for(int i=0;i<n;i++){
-        if(s[i]=='+') mini++;
-        else maxi++;
-      }
-      if(mini>maxi){
-        ll temp=mini;
-        mini=maxi;
-        maxi=temp;
-      }
-      vector<pair<ll,ll>> v;
-      
-      for(int i=0;i<min(mini,maxi);i++){
-        ll tempmin=mini-i;
-        ll tempmax=maxi-i;
-        v.push_back({tempmin,tempmax});
 
-
-
-
-      }
-    for(int i=0;i<q;i++){
-      ll a,b;
-      ll larg;
-      ll small;
-      cin>>a>>b;
-      if(mini==maxi){
-        cout<<"yes"<<endl;
-        continue;
-      }
-      if(a>b){
-        larg=a;
-        small=b;
-
-        
-      }
-      else {
-        larg=b;
-        small=a;
-      }
-      
-      int check=0;
-      for(int i=0;i<v.size();i++){
-        if(small*v[i].second==larg*v[i].first){
-          check=1;
-          break;
-
+    while (q--) {
+        ll x, y;
+        cin>>x>>y;
+        if (tot==0) {
+            cout<<"YES\n";
+            continue;
         }
-      }
-      if(check==1)cout<<"YES"<<endl;
-      else cout<<"NO"<<endl;
+        if (x==y) {
+            cout<<"NO\n";
+            continue;
+        }
+
+        ll num=tot*y;
+        ll den =y-x;
+        if (num%den!=0) {
+            cout<<"NO\n";
+            continue;
+        }
+
+        ll k=num/den;
+        if (-m<=k && k<=p) cout<<"YES\n";
+        else cout<<"NO\n";
     }
 }
 
