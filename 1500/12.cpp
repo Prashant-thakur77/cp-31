@@ -7,18 +7,23 @@ using namespace std;
 #define rall(x) (x).rbegin(), (x).rend()
 #define pb push_back
 #define mod 1000000007
+ll sol(vector<ll> v){
+  sort(all(v));
+  return v[v.size()/2]-v[(v.size()-1)/2]+1;
+}
 
 void solve() {
     // Your code here
     ll n;
     cin>>n;
-    vector<pair<ll,ll>> v;
+    vector<ll> v(n),w(n);
     for(int i=0;i<n;i++){
-      ll a,b;
-      cin>>a>>b;
-      v.push_back({a,b});
+      cin>>v[i]>>w[i];
     }
-    
+    cout<<sol(v)*sol(w)<<endl;
+    return;
+
+
 
 
 }
