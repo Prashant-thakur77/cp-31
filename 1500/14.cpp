@@ -10,9 +10,7 @@ using namespace std;
 
 void solve() {
     // Your code here
-    int n;
-    cin>>n;
-    cout<<n*2<<endl;
+    
 }
 
 int32_t main() {
