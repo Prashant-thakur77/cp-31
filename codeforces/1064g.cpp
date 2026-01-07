@@ -1,50 +1,53 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define fast_io ios::sync_with_stdio(false); cin.tie(nullptr)
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define pb push_back
-#define mod 1000000007
+bool good(int d, int n, int m, int k) {
+  if (d == 0)
+    return true;
 
-void solve() {
-    // Your code here
-    int n;
-    cin>>n;
-    vector<int> v(n);
-    for(int i=0;i<n;i++){
-      cin>>v[i];
-    }
-    vector<int> t=v;
-    sort(all(t));
-    for(int i=0;i<n;i++){
-      
-      v[i]=lower_bound(t.begin(),t.end(),v[i])-t.begin();
-    }
-    vector<int> cost(n);
-    for(int i=0;i<n;i++){
-      cin>>cost[i];
-    }
-    vector<ll> dp(n,0);
-    for(int i=0;i<n;i++){
-      ll mn=LLONG_MAX/2;
-      for(int j=0;j<n;j++){
-        mn=min(mn,dp[j]);
-        dp[j]=mn + ((j==v[i])?0:cost[i]);
-      }
-    }
-    cout<<*min_element(dp.begin(),dp.end())<<endl;
-    return;
+  int L = max(0, d - (n - k));
+  int R = min(d, k - 1);
 
+  if (L > R)
+    return false;
 
+  if (L <= R) {
+    int t1 = 2 * d - m - 1;
+    int t2 = m + 1 - d;
+    if (max(L, t1) > min(R, t2))
+      return false;
+    else
+      return true;
+  }
 
+  return false;
 }
 
-int32_t main() {
-    fast_io;
-    int t = 1;
-    cin >> t;
-    while (t--) solve();
-    return 0;
+void solve() {
+  int n, m, k;
+  cin >> n >> m >> k;
+
+  int lo = 0, hi = min(n - 1, m), best = 0;
+  while (lo <= hi) {
+    int d = (lo + hi) / 2;
+    if (good(d, n, m, k)) {
+      lo   = d + 1;
+      best = d;
+    } else {
+      hi = d - 1;
+    }
+  }
+
+  cout << best + 1 << endl;
+}
+
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  int t;
+  cin >> t;
+  while (t--)
+    solve();
 }
