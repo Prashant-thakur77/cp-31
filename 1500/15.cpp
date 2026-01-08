@@ -16,47 +16,18 @@ void solve() {
     for(int i=0;i<n;i++){
       cin>>v[i];
     }
-    ll check=0;
-    ll i=0;
-    ll cnt=0;
-    while(i<n){
-      if(check==0){
-        if(i==n-1){
-          if(v[i]==1)cnt++;
-          else i++;
-
-        }
-        else if(v[i]==0 && v[i+1]==0){
-          i++;
-        }
-        else if(v[i]==0 && v[i+1]==1){
-          i++;
-        }
-        else if(v[i]==1 && v[i+1]==0){
-          i+=2;
-          cnt++;
-        }
-        else{
-          i++;
-          cnt++;
-        }
-        check=1;
-
-      }
-      else{
-        if(i==n-1){
-          i++;
-          continue;
-        }
-        else if(v[i]==1 && v[i+1]==1)i+=2;
-        else if(v[i]==0 && v[i+1]==0)i++;
-        else if(v[i]==0 && v[i+1]==1)i+=2;
-        else if(v[i]==1 && v[i+1]==0)i++;
-        check=0;
-
-      }
+    ll ans=0;
+    for(int i=1;i<n;i++){
+      if(v[i]==0)continue;
+      ll k=i;
+      while(k<n && v[k]==1)k++;
+      ans+=(k-i)/3;
+      i=k-1;
     }
-    cout<<cnt<<endl;
+    ans+=v[0];
+    
+    
+    cout<<ans<<endl;
 }
 
 int32_t main() {
