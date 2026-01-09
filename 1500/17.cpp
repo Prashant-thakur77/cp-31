@@ -66,7 +66,7 @@ void solve() {
       cout<<"yes"<<endl;
       return;
     }
-    else cout<<"no"<<endl;18
+    else cout<<"no"<<endl;
     
 }
 
