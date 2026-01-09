@@ -18,41 +18,23 @@ void solve() {
     ll check=0;
     for(int i=0;i<n;i++){
       cin>>v[i];
-      if(i==0)continue;
-      if(v[i]<v[i-1] && check==0){
-        lastno=v[i-1];
-        lastind=i;
-        check=1;
+     
 
+    }
+    ll maxi=0;
+    for(int i=1;i<n;i++){
+      if(v[i-1]>v[i]){
+        maxi=max(maxi,v[i-1]-v[i]);
+        v[i]=v[i-1];
       }
-
+      
     }
-    if(lastind==0){
-      cout<<0<<endl;
-      return;
+    ll ans=0;
+    if(maxi>0){
+      ans=log2(maxi)+1;
     }
-    //cout<<lastind<<endl;
-    ll i=lastind;
-    ll cursum=1;
-    ll cnt=0;
-    ll j=2;
-    while(i<n){
-      //cout<<i<<endl;
-      //cout<<lastno<<endl;
-      if(v[i]<lastno)cnt++;
-      while(v[i]+cursum<lastno){
-        //cout<<cursum<<endl;
-        
-        cursum+=pow(2,j-1);
-        cnt++;
-        j++;
-
-      }
-      i++;
-      lastno=v[i-1];
-
-    }
-    cout<<cnt<<endl;
+    cout<<ans<<endl;
+    
 
 }
 
