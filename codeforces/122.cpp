@@ -10,15 +10,11 @@ using namespace std;
 
 void solve() {
     // Your code here
-    ll n;
-    cin>>n;
-  
-    if(n<4){
-        cout<<n<<endl;
-    } 
-    else{
-        cout<<(n%2)<<endl;
-    }
+    ll s, k, m;
+    cin>>s>>k>>m;
+    
+    ll sand=((m/k)%2==0?s:min(s, k));
+    cout<<max(0LL,sand-m%k)<<endl;
 }
 
 int32_t main() {
