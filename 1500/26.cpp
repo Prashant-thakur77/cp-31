@@ -22,42 +22,38 @@ void solve() {
     vector<int> ans(n,0);
     ll check=0;
     sort(all(v));
-    ll ending=v[0][1];
-    ll ind=-1;
+    vector<int> visited(100001,0);
     ans[v[0][2]]=1;
-
   
-    
+    ll last1=v[0][1];
+    ll last2=0;
     for(int i=1;i<n;i++){
-      if(v[i][0]<=ending){
+     
+      if(v[i][0]<=last1){
         ans[v[i][2]]=1;
-        ending=max(ending,v[i][1]);
+        last1=max(last1,v[i][1]);
+        
+
       }
       else{
-        check=1;
         ans[v[i][2]]=2;
+        
+
       }
-      
-     
 
 
     }
-    if(check==0){
+    set<int> st(ans.begin(),ans.end());
+    if(st.size()==1){
       cout<<-1<<endl;
       return;
     }
-    else{
-      for(int i=0;i<n;i++){
-       cout<<ans[i]<<" ";
+    for(int i=0;i<n;i++){
+      cout<<ans[i]<<" ";
 
-        
-      }
-      cout<<endl;
-      return;
-
+      
     }
-    
-    
+    cout<<endl;
 }
 
 int32_t main() {
