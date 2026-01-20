@@ -7,7 +7,7 @@ using namespace std;
 #define pb push_back
 #define mod 10000000074
 ll ans=0;
-ll dfs(int v,int p,vector<vector<int>> adj){
+ll dfs(int v,int p,vector<vector<int>>& adj){
   int s=0;
   for(auto j:adj[v]){
     if(j!=p){
