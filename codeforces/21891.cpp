@@ -21,14 +21,14 @@ void solve() {
     ll mini=min(h,l);
     ll maxi=max(h,l);
     for(int i=0;i<n;i++){
-      if(v[i]<=mini && v1.size()<n/2){
+      if(v[i]<=mini){
         v1.push_back(v[i]);
       }
       else if(v[i]<=maxi){
         v2.push_back(v[i]);
       }
     }
-    cout<<min(v1.size(),v2.size())<<endl;
+    cout<<min(v1.size(),(v1.size()+v2.size())/2)<<endl;
 }
 
 int32_t main() {
