@@ -24,6 +24,7 @@ void solve() {
     cin>>n>>x;
     if((n&x)==0){
         cout<<n<<" "<<x<<endl;
+        return;
     }
     for(int i=0;i<=30;i++){
         if(((n&x)>>i)&1){
