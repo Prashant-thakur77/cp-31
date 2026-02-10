@@ -16,21 +16,19 @@ void solve() {
     for(int i=0;i<n;i++){
       cin>>v[i];
     }
-    vector<ll> w=v;
-    ll no=w[0]%x;
-    ll ind=0;
+    vector<ll> w(n,0);
+    ll maxi=0;
+    ll total=0;
+   
     for(int i=0;i<n;i++){
-      if((w[i]%x)>no){
-        no=w[i]%x;
-        ind=i;
-      }
+     w[i]=(v[i]/x)*y;
+     total+=w[i];
+     maxi=max(maxi,v[i]-w[i]);
     }
-    ll total=w[ind];
-    for(int i=0;i<n;i++){
-      if(i==ind)continue;
-      total+=y*(w[i]/x);
-    }
-    cout<<total<<endl;
+    
+  
+    cout<<total+maxi<<endl;
+    
 }
 
 int32_t main() {
