@@ -7,15 +7,28 @@ using namespace std;
 #define rall(x) (x).rbegin(), (x).rend()
 #define pb push_back
 #define mod 1000000007
+ll dig_sum(ll n){
+  string k=to_string(n);
+  ll sum=0;
+  for(int i=0;i<k.size();i++){
+    sum+=k[i]-'0';
+  
+  }
+  return sum;
+}
 
 void solve() {
     // Your code here
     ll n;
     cin>>n;
-    if(n%9==0){
-      cout<<10<<endl;
+    ll ans=0;
+    for(int i=n;i<n+1000;i++){
+      if(i-dig_sum(i)==n){
+        ans+=1;
+      }
     }
-    else cout<<0<<endl;
+    cout<<ans<<endl;
+    
 }
 
 int32_t main() {
