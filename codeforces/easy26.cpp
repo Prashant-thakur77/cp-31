@@ -10,6 +10,28 @@ using namespace std;
 
 void solve() {
     // Your code here
+    int n;
+    cin>>n;
+    map<int,int> mpp;
+    for(int i=0;i<n;i++){
+      int no;
+      cin>>no;
+      mpp[no]=i;
+    }
+    int last=-1;
+    vector<int> v(n);
+    for(int i=0;i<n;i++){
+      cin>>v[i];
+    }
+    for(int i=0;i<n;i++){
+      if(last>mpp[v[i]]){
+        cout<<"no"<<endl;
+        return;
+      }
+      last=mpp[v[i]];
+    }
+    cout<<"yes"<<endl;
+
 }
 
 int32_t main() {
