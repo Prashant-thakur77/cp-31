@@ -12,45 +12,10 @@ void solve() {
     // Your code here
     ll x,y;
     cin>>x>>y;
-    int k=0;
-    if(y>0 && x==2*y){
+    if((x+y)%3==0 && y<=x/2 && y>=-x/4){
       cout<<"yes"<<endl;
-      k=1;
     }
-    else if(x%3==0 && y==0){
-      cout<<"yes"<<endl;
-      k=1;
-    }
-    else if(y<0 && x==-(4*y)){
-      cout<<"yes"<<endl;
-      k=1;
-
-    }
-    else{
-      
-      for(int i=1;i<1000;i++){
-        if(y> 0 && x==(2*y+3*i)){
-          cout<<"yes"<<endl;
-          k=1;
-          break;
-
-        }
-      }
-    }
-    if(k!=1){
-      for(int i=1;i<1000;i++){
-        if(y<0 && x==(4*y+3*i)){
-          cout<<"yes"<<endl;
-          k=1;
-          break;
-
-        }
-      }
-
-    }
-    if(k!=1){
-      cout<<"no"<<endl;
-    }
+    else cout<<"no"<<endl;
 }
 
 int32_t main() {
